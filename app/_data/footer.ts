@@ -1,44 +1,39 @@
 export type FooterLink = { label: string; href: string; external?: boolean };
 export type FooterColumn = { h: string; l: ReadonlyArray<FooterLink> };
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "https://safety-net-production-f77e.up.railway.app";
+
 export const FOOTER_COLUMNS: ReadonlyArray<FooterColumn> = [
   {
     h: "Product",
     l: [
       { label: "Dashboard", href: "/dashboard" },
-      { label: "Autopilot", href: "/autopilot" },
-      { label: "Integrations", href: "/integrations" },
-      { label: "Changelog", href: "/changelog" },
-      { label: "Status", href: "https://status.safetynet.app", external: true },
+      { label: "Positions", href: "/dashboard/positions" },
+      { label: "History", href: "/dashboard/history" },
+      { label: "Settings", href: "/dashboard/settings" },
     ],
   },
   {
     h: "Developers",
     l: [
-      { label: "Docs", href: "/docs" },
-      { label: "API", href: "/docs/api" },
-      { label: "x402", href: "/docs/x402" },
-      { label: "GitHub", href: "https://github.com/safetynet", external: true },
-      { label: "Bug bounty", href: "https://immunefi.com/bounty/safetynet", external: true },
+      { label: "API Docs", href: `${API_URL}/docs`, external: true },
+      { label: "GraphQL", href: `${API_URL}/graphql`, external: true },
+      { label: "GitHub", href: "https://github.com/sandeepgehlawat/safety-net-backend", external: true },
     ],
   },
   {
-    h: "Company",
+    h: "Resources",
     l: [
-      { label: "About", href: "/about" },
-      { label: "Blog", href: "/blog" },
-      { label: "Careers", href: "/careers" },
-      { label: "Press", href: "/press" },
-      { label: "Brand", href: "/brand" },
+      { label: "How it works", href: "/#how-it-works" },
+      { label: "Pricing", href: "/#pricing" },
+      { label: "FAQ", href: "/#faq" },
     ],
   },
   {
     h: "Legal",
     l: [
-      { label: "Terms", href: "/legal/terms" },
-      { label: "Privacy", href: "/legal/privacy" },
-      { label: "Security", href: "/legal/security" },
-      { label: "Disclosures", href: "/legal/disclosures" },
+      { label: "Terms", href: "/terms" },
+      { label: "Privacy", href: "/privacy" },
     ],
   },
 ];
